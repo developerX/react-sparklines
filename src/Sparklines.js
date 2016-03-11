@@ -24,7 +24,7 @@ class Sparklines extends React.Component {
         width: 120,
         height: 30,
         margin: 2,
-        viewbox: `0 0 100 100`,
+        viewbox: null,
         preserve: 'none'
     };
 
@@ -39,9 +39,6 @@ class Sparklines extends React.Component {
             nextProps.data.length != this.props.data.length ||
             nextProps.data.some((d, i) => d !== this.props.data[i]);
     }
-    get viewbox() {
-        this.props.viewbox = this.props.height && this.props.width ? `0 0 ${this.props.width} ${this.props.height}` : this.props.viewbox;
-    }
     render() {
 
         const { data, limit, width, height, margin, style, max, min, viewbox, preserve  } = this.props;
@@ -51,7 +48,7 @@ class Sparklines extends React.Component {
         const points = DataProcessor.dataToPoints(data, limit, width, height, margin, max, min);
 
         return (
-            <svg style={style} viewBox={viewbox} preserveAspectRatio={preserve}>
+            <svg style={style} viewBox={viewbox ? viewbox : `0 0 ${width} ${height}`} preserveAspectRatio={preserve}>
                 {
                     React.Children.map(this.props.children, function(child) {
                         return React.cloneElement(child, { points, width, height, margin });

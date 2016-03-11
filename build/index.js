@@ -132,7 +132,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            width: 120,
 	            height: 30,
 	            margin: 2,
-	            viewbox: '0 0 100 100',
+	            viewbox: null,
 	            preserve: 'none'
 	        },
 	        enumerable: true
@@ -171,19 +171,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'svg',
-	            { style: style, viewBox: viewbox, preserveAspectRatio: preserve },
+	            { style: style, viewBox: viewbox ? viewbox : '0 0 ' + width + ' ' + height, preserveAspectRatio: preserve },
 	            _react2['default'].Children.map(this.props.children, function (child) {
 	                return _react2['default'].cloneElement(child, { points: points, width: width, height: height, margin: margin });
 	            })
 	        );
 	    };
-
-	    _createClass(Sparklines, [{
-	        key: 'viewbox',
-	        get: function get() {
-	            this.props.viewbox = this.props.height && this.props.width ? '0 0 ' + this.props.width + ' ' + this.props.height : this.props.viewbox;
-	        }
-	    }]);
 
 	    return Sparklines;
 	})(_react2['default'].Component);
