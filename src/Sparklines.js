@@ -20,8 +20,8 @@ class Sparklines extends React.Component {
 
     static defaultProps = {
         data: [],
-        width: 120,
-        height: 30,
+        width: null,
+        height: null,
         margin: 2,
         viewbox: '0 0 100 100'
     };

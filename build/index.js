@@ -128,8 +128,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'defaultProps',
 	        value: {
 	            data: [],
-	            width: 120,
-	            height: 30,
+	            width: null,
+	            height: null,
 	            margin: 2,
 	            viewbox: '0 0 100 100'
 	        },
