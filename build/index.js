@@ -121,7 +121,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            height: _react2['default'].PropTypes.number,
 	            margin: _react2['default'].PropTypes.number,
 	            style: _react2['default'].PropTypes.object,
-	            viewbox: _react2['default'].PropTypes.string
+	            viewbox: _react2['default'].PropTypes.string,
+	            preserve: _react2['default'].PropTypes.string
 	        },
 	        enumerable: true
 	    }, {
@@ -131,7 +132,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            width: null,
 	            height: null,
 	            margin: 2,
-	            viewbox: '0 0 100 100'
+	            viewbox: '0 0 100 100',
+	            preserve: 'none'
 	        },
 	        enumerable: true
 	    }]);
@@ -161,6 +163,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var max = _props.max;
 	        var min = _props.min;
 	        var viewbox = _props.viewbox;
+	        var preserve = _props.preserve;
 
 	        if (data.length === 0) return false;
 
@@ -168,7 +171,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'svg',
-	            { width: width, height: height, style: style, viewBox: viewbox, preserveAspectRatio: true },
+	            { style: style, viewBox: viewbox, preserveAspectRatio: preserve },
 	            _react2['default'].Children.map(this.props.children, function (child) {
 	                return _react2['default'].cloneElement(child, { points: points, width: width, height: height, margin: margin });
 	            })
