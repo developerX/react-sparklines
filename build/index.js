@@ -168,7 +168,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'svg',
-	            { width: width, height: height, style: style, viewBox: viewbox },
+	            { width: width, height: height, style: style, viewBox: viewbox, preserveAspectRatio: true },
 	            _react2['default'].Children.map(this.props.children, function (child) {
 	                return _react2['default'].cloneElement(child, { points: points, width: width, height: height, margin: margin });
 	            })
