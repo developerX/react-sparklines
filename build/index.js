@@ -129,8 +129,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'defaultProps',
 	        value: {
 	            data: [],
-	            width: null,
-	            height: null,
+	            width: 120,
+	            height: 30,
 	            margin: 2,
 	            viewbox: '0 0 100 100',
 	            preserve: 'none'
@@ -177,6 +177,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	            })
 	        );
 	    };
+
+	    _createClass(Sparklines, [{
+	        key: 'viewbox',
+	        get: function get() {
+	            this.props.viewbox = this.props.height && this.props.width ? '0 0 ' + this.props.width + ' ' + this.props.height : this.props.viewbox;
+	        }
+	    }]);
 
 	    return Sparklines;
 	})(_react2['default'].Component);

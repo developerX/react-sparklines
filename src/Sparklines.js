@@ -21,10 +21,10 @@ class Sparklines extends React.Component {
 
     static defaultProps = {
         data: [],
-        width: null,
-        height: null,
+        width: 120,
+        height: 30,
         margin: 2,
-        viewbox: '0 0 100 100',
+        viewbox: `0 0 100 100`,
         preserve: 'none'
     };
 
@@ -39,7 +39,9 @@ class Sparklines extends React.Component {
             nextProps.data.length != this.props.data.length ||
             nextProps.data.some((d, i) => d !== this.props.data[i]);
     }
-
+    get viewbox() {
+        this.props.viewbox = this.props.height && this.props.width ? `0 0 ${this.props.width} ${this.props.height}` : this.props.viewbox;
+    }
     render() {
 
         const { data, limit, width, height, margin, style, max, min, viewbox, preserve  } = this.props;
